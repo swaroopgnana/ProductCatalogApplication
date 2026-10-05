@@ -1,0 +1,38 @@
+﻿@model List<Demo.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/_myLayoutPage.cshtml";
+}
+
+<h2>Index</h2>
+
+@{ 
+    Layout = null;
+}
+<h2>Product Catalog</h2>
+<h2> KONATHAM GNANA SWAROOP (92400120339)</h2>
+<table border="1">
+    <tr>
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Action</th>
+
+    </tr>
+    @foreach(var product in Model)
+            {
+                <tr>
+                    <td>@product.ProductId</td>
+                    <td>@product.ProductName</td>
+                    <td>@product.Description</td>
+                    <td>@product.Price</td>
+                    <td>@product.Category</td>
+                    <td>
+                        @Html.ActionLink("View Details","Details","Product",new { id = product.ProductId},null)
+                    </td>
+                </tr>
+            }
+   
+    </table>
